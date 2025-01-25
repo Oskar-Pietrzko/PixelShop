@@ -1,8 +1,8 @@
 from flask import Blueprint
 
-from app.controller.web.auth_controller import AuthController
+from app.controller.client_controller import ClientController
 
 web_routes: Blueprint = Blueprint("web_routes", __name__)
 
-web_routes.add_url_rule("/register", view_func=AuthController.register_view, methods=["GET"], endpoint="register_view")
-web_routes.add_url_rule("/register", view_func=AuthController.register, methods=["POST"], endpoint="register")
+web_routes.add_url_rule("/client/add", view_func=ClientController.add, methods=["GET", "POST"], endpoint="add_client")
+web_routes.add_url_rule("/client", view_func=ClientController.get_all, methods=["GET"], endpoint="get_all_clients")

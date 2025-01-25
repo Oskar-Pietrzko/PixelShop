@@ -3,7 +3,7 @@ from sqlalchemy.orm import Mapped
 from app.db import db
 
 
-class ProductSnapshotDB:
+class ProductSnapshotDB(db.Model):
     __tablename__: str = "product_snapshots"
 
     id: Mapped[int] = db.Column(db.Integer, primary_key=True)

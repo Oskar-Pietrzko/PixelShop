@@ -8,7 +8,7 @@ class OrderDB(db.Model):
     __tablename__: str = "orders"
 
     id: Mapped[int] = db.Column(db.Integer, primary_key=True)
-    client_id: Mapped[int] = db.Column(db.Integer, db.ForeignKey("clients.id"), nullable=False)
+    client_id: Mapped[int] = db.Column(db.Integer, db.ForeignKey("client.id"), nullable=False)
 
     order_lines: Mapped[list[OrderLineDB]] = db.relationship("OrderLineDB", backref="orders")
 

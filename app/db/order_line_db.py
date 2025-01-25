@@ -11,7 +11,7 @@ class OrderLineDB(db.Model):
     order_id: Mapped[int] = db.Column(db.Integer, db.ForeignKey("orders.id"), nullable=False)
     product_id: Mapped[int] = db.Column(db.Integer, db.ForeignKey("product_snapshots.id"), nullable=False)
 
-    product: Mapped[ProductSnapshotDB] = db.relationship("ProductSnapshotDB", backref="clients")
+    product: Mapped[ProductSnapshotDB] = db.relationship("ProductSnapshotDB", backref="order_lines")
 
     def __repr__(self) -> str:
         return f"OrderDB(id={self.id}, client_id={self.client_id}, product_id={self.product_id}, purchase_price={self.purchase_price})"
